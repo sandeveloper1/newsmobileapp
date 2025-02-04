@@ -207,7 +207,7 @@
             "id": "the-washington-post",
             "title": "The Washington Post",
             "link": "https://www.washingtonpost.com",
-            "category": "economics&politics",
+            "category": "Economics&Politics",
             "language": "english"
         },
         {
@@ -240,7 +240,8 @@
         "Sports",
         "Technology",
         "Entertainment",
-        "Regional"
+        "Regional",
+        "Economics&Politics"
     ],
     "languages": [
         "english",
