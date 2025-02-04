@@ -1,0 +1,260 @@
+{
+    "sources": [
+        {
+            "id": "bbc-news",
+            "title": "BBC News",
+            "link": "https://www.bbc.com/news",
+            "category": "General",
+            "language": "english"
+        },
+        {
+            "id": "cnn",
+            "title": "CNN",
+            "link": "https://www.cnn.com",
+            "category": "General",
+            "language": "english"
+        },
+        {
+            "id": "ndtv",
+            "title": "NDTV",
+            "link": "https://www.ndtv.com",
+            "category": "General",
+            "language": "hindi"
+        },
+        {
+            "id": "aaj-tak",
+            "title": "Aaj Tak",
+            "link": "https://www.aajtak.in",
+            "category": "General",
+            "language": "hindi"
+        },
+        {
+            "id": "times-of-india",
+            "title": "Times of India",
+            "link": "https://timesofindia.indiatimes.com",
+            "category": "General",
+            "language": "english"
+        },
+        {
+            "id": "indian-express",
+            "title": "Indian Express",
+            "link": "https://indianexpress.com",
+            "category": "General",
+            "language": "english"
+        },
+        {
+            "id": "hindustan-times",
+            "title": "Hindustan Times",
+            "link": "https://www.hindustantimes.com",
+            "category": "General",
+            "language": "english"
+        },
+        {
+            "id": "dainik-bhaskar",
+            "title": "Dainik Bhaskar",
+            "link": "https://www.bhaskar.com",
+            "category": "National",
+            "language": "hindi"
+        },
+        {
+            "id": "zee-news",
+            "title": "Zee News",
+            "link": "https://zeenews.india.com",
+            "category": "Regional",
+            "language": "hindi"
+        },
+        {
+            "id": "malayala-manorama",
+            "title": "Malayala Manorama",
+            "link": "https://www.manoramaonline.com",
+            "category": "Regional",
+            "language": "malayalam"
+        },
+        {
+            "id": "eenadu",
+            "title": "Eenadu",
+            "link": "https://www.eenadu.net",
+            "category": "Regional",
+            "language": "telugu"
+        },
+        {
+            "id": "ananda-bazaar-patrika",
+            "title": "Ananda Bazaar Patrika",
+            "link": "https://www.anandabazar.com",
+            "category": "Regional",
+            "language": "bengali"
+        },
+        {
+            "id": "prajavani",
+            "title": "Prajavani",
+            "link": "https://www.prajavani.net",
+            "category": "Regional",
+            "language": "kannada"
+        },
+        {
+            "id": "dainik-jagran",
+            "title": "Dainik Jagran",
+            "link": "https://www.jagran.com",
+            "category": "Regional",
+            "language": "hindi"
+        },
+        {
+            "id": "anandabazar-patrika",
+            "title": "Anandabazar Patrika",
+            "link": "https://www.anandabazar.com",
+            "category": "Regional",
+            "language": "bengali"
+        },
+        {
+            "id": "eenadu",
+            "title": "Eenadu",
+            "link": "https://www.eenadu.net",
+            "category": "Regional",
+            "language": "telugu"
+        },
+        {
+            "id": "lokmat",
+            "title": "Lokmat",
+            "link": "https://www.lokmat.com",
+            "category": "Regional",
+            "language": "marathi"
+        },
+        {
+            "id": "dinamalar",
+            "title": "Dinamalar",
+            "link": "https://www.dinamalar.com",
+            "category": "Regional",
+            "language": "tamil"
+        },
+        {
+            "id": "jang",
+            "title": "Daily Jang",
+            "link": "https://www.jang.com.pk",
+            "category": "Regional",
+            "language": "urdu"
+        },
+        {
+            "id": "divya-bhaskar",
+            "title": "Divya Bhaskar",
+            "link": "https://www.divyabhaskar.com",
+            "category": "Regional",
+            "language": "gujarati"
+        },
+        {
+            "id": "vijay-karnataka",
+            "title": "Vijay Karnataka",
+            "link": "https://www.vijaykarnataka.com",
+            "category": "Regional",
+            "language": "kannada"
+        },
+        {
+            "id": "mathrubhumi",
+            "title": "Mathrubhumi",
+            "link": "https://www.mathrubhumi.com",
+            "category": "Regional",
+            "language": "malayalam"
+        },
+        {
+            "id": "samaja",
+            "title": "Samaja",
+            "link": "https://www.samajaepaper.in",
+            "category": "Regional",
+            "language": "odia"
+        },
+        {
+            "id": "ajit",
+            "title": "Ajit",
+            "link": "https://www.ajitjalandhar.com",
+            "category": "Regional",
+            "language": "punjabi"
+        },
+        {
+            "id": "dainik-asam",
+            "title": "Dainik Asam",
+            "link": "https://dainikasam.com",
+            "category": "Regional",
+            "language": "assamese"
+        },
+        {
+            "id": "al-jazeera-english",
+            "title": "Al Jazeera English",
+            "link": "https://www.aljazeera.com",
+            "category": "International",
+            "language": "english"
+        },
+        {
+            "id": "the-guardian",
+            "title": "The Guardian",
+            "link": "https://www.theguardian.com",
+            "category": "International",
+            "language": "english"
+        },
+        {
+            "id": "reuters",
+            "title": "Reuters",
+            "link": "https://www.reuters.com",
+            "category": "International",
+            "language": "english"
+        },
+        {
+            "id": "the-new-york-times",
+            "title": "The New York Times",
+            "link": "https://www.nytimes.com",
+            "category": "International",
+            "language": "english"
+        },
+        {
+            "id": "the-washington-post",
+            "title": "The Washington Post",
+            "link": "https://www.washingtonpost.com",
+            "category": "economics&politics",
+            "language": "english"
+        },
+        {
+            "id": "financial-times",
+            "title": "Financial Times",
+            "link": "https://www.ft.com",
+            "category": "Business",
+            "language": "english"
+        },
+        {
+            "id": "the-wall-street-journal",
+            "title": "The Wall Street Journal",
+            "link": "https://www.wsj.com",
+            "category": "Business",
+            "language": "english"
+        },
+        {
+            "id": "forbes",
+            "title": "Forbes",
+            "link": "https://www.forbes.com",
+            "category": "Business",
+            "language": "english"
+        }
+    ],
+    "categories": [
+        "General",
+        "National",
+        "International",
+        "Business",
+        "Sports",
+        "Technology",
+        "Entertainment",
+        "Regional"
+    ],
+    "languages": [
+        "english",
+        "hindi", 
+        "malayalam", 
+        "telugu", 
+        "bengali", 
+        "kannada", 
+        "tamil", 
+        "marathi", 
+        "gujarati", 
+        "punjabi", 
+        "urdu", 
+        "odia", 
+        "assamese"
+    ]
+}
