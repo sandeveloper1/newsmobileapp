@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NewsFlow - News Sources</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+        <div class="container-fluid px-3 justify-content-center">
+            <a class="navbar-brand text-center" href="#">
+                <img src="logo.png" width="150" height="80" class="rounded-circle" alt="News Paper Logo">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Category Tabs -->
+            <div class="col-12 mb-3">
+                <div class="d-flex align-items-center">
+                    <ul class="nav nav-pills flex-nowrap overflow-auto" id="categoryTabs">
+                        <li class="nav-item me-2">
+                            <a class="nav-link active" href="#" data-category="all">
+                                <i class="bi bi-grid-fill me-1"></i>All
+                            </a>
+                        </li>
+                        <!-- Categories will be dynamically added here -->
+                    </ul>
+                    <button class="btn btn-outline-primary btn-sm ms-2" id="addCategoryBtn" data-bs-toggle="modal" data-bs-target="#customNewspaperModal">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="container mb-4">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-search"></i></span>
+                            <input 
+                                type="search" 
+                                class="form-control" 
+                                id="newspaperSearchInput" 
+                                placeholder="Search newspapers by title, category, or language"
+                                aria-label="Search newspapers"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- News Sources Grid -->
+            <div class="col-12">
+                <div class="row row-cols-2 row-cols-md-4 g-3" id="newsSources">
+                    <!-- News sources will be dynamically added here -->
+                </div>
+            </div>
+
+            <!-- Empty State for No Newspapers -->
+            <div class="col-12 text-center d-none" id="emptyStateContainer">
+                <img src="empty-state.webp" alt="No Newspapers" class="img-fluid mb-3" style="max-width: 250px;">
+                <h4 class="mb-3">No Newspapers Found</h4>
+                <p class="text-muted mb-3">Looks like there are no newspapers in this category.</p>
+                <button class="btn btn-primary" id="addFirstNewspaperBtn" data-bs-toggle="modal" data-bs-target="#customNewspaperModal">
+                    <i class="bi bi-plus-circle me-2"></i>Add Your First Newspaper
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navbar -->
+    <nav class="navbar bottom-navbar border-top fixed-bottom bg-white">
+        <div class="container justify-content-around">
+            <a href="#" class="text-center text-decoration-none text-dark" id="themeToggle">
+                <i class="bi bi-moon d-block"></i>
+                <small>Theme</small>
+            </a>
+            <a href="#" class="text-center text-decoration-none text-dark" id="viewToggle">
+                <i class="bi bi-grid-fill d-block"></i>
+                <small>View</small>
+            </a>
+            <a href="#" class="text-center text-decoration-none text-dark" id="filterToggle" data-bs-toggle="modal" data-bs-target="#filterModal">
+                <i class="bi bi-funnel d-block"></i>
+                <small>Filter</small>
+            </a>
+            <a href="favorites.html" class="text-center text-decoration-none text-dark">
+                <i class="bi bi-heart d-block"></i>
+                <small>Favorites</small>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Filter Modal -->
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="filterModalLabel">Filter News Sources</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select id="categoryFilter" class="form-select" multiple>
+                            <option value="all" selected>All Categories</option>
+                            <option value="general">General</option>
+                            <option value="regional">Regional</option>
+                            <option value="economics&politics">Economics&Politics</option>
+                            <option value="sports">Sports</option>
+                            <option value="Celebrities">Celebrities</option>
+                            <option value="fashion">Fashion</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Language</label>
+                        <select id="languageFilter" class="form-select" multiple>
+                            <option value="all" selected>All Languages</option>
+                            <option value="english">English</option>
+                            <option value="hindi">Hindi</option>
+                            <option value="malayalam">Malayalam</option>
+                            <option value="telugu">Telugu</option>
+                            <option value="bengali">Bengali</option>
+                            <option value="kannada">Kannada</option>
+                            <option value="tamil">Tamil</option>
+                            <option value="marathi">Marathi</option>
+                            <option value="gujarati">Gujarati</option>
+                            <option value="punjabi">Punjabi</option>
+                            <option value="urdu">Urdu</option>
+                            <option value="odia">Odia</option>
+                            <option value="assamese">Assamese</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="applyFilters">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    
+    <!-- News Sources Script -->
+    <script src="news-sources.js"></script>
+
+    <!-- Custom script for bottom panel functionality -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDarkMode = body.classList.contains('dark-mode');
+            
+            // Update icon
+            const themeIcon = themeToggle.querySelector('i');
+            themeIcon.classList.toggle('bi-moon', !isDarkMode);
+            themeIcon.classList.toggle('bi-sun', isDarkMode);
+            
+            // Save theme preference
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        });
+
+        // View Toggle (Grid/List)
+        const viewToggle = document.getElementById('viewToggle');
+        const newsSourcesContainer = document.getElementById('newsSources');
+        
+        viewToggle.addEventListener('click', () => {
+            const currentView = newsSourcesContainer.classList.contains('row-cols-2') ? 'grid' : 'list';
+            
+            // Toggle between grid and list views
+            if (currentView === 'grid') {
+                // Switch to list view
+                newsSourcesContainer.classList.remove('row-cols-2', 'row-cols-md-4');
+                newsSourcesContainer.classList.add('row-cols-1');
+                
+                // Update icon
+                const viewIcon = viewToggle.querySelector('i');
+                viewIcon.classList.remove('bi-grid-fill');
+                viewIcon.classList.add('bi-list-ul');
+            } else {
+                // Switch to grid view
+                newsSourcesContainer.classList.remove('row-cols-1');
+                newsSourcesContainer.classList.add('row-cols-2', 'row-cols-md-4');
+                
+                // Update icon
+                const viewIcon = viewToggle.querySelector('i');
+                viewIcon.classList.remove('bi-list-ul');
+                viewIcon.classList.add('bi-grid-fill');
+            }
+            
+            // Save view preference
+            localStorage.setItem('viewMode', currentView === 'grid' ? 'list' : 'grid');
+        });
+
+        // Filter Functionality
+        const categoryFilter = document.getElementById('categoryFilter');
+        const languageFilter = document.getElementById('languageFilter');
+        const applyFiltersBtn = document.getElementById('applyFilters');
+
+        applyFiltersBtn.addEventListener('click', () => {
+            const selectedCategories = Array.from(categoryFilter.selectedOptions)
+                .map(option => option.value)
+                .filter(val => val !== 'all');
+            
+            const selectedLanguages = Array.from(languageFilter.selectedOptions)
+                .map(option => option.value)
+                .filter(val => val !== 'all');
+
+            // Get all news source cards
+            const newsCards = document.querySelectorAll('.news-card');
+
+            let visibleCardsCount = 0;
+            newsCards.forEach(card => {
+                const cardCategory = card.dataset.category.toLowerCase();
+                const cardLanguage = card.dataset.language.toLowerCase();
+
+                // Determine visibility
+                const categoryMatch = selectedCategories.length === 0 || 
+                    selectedCategories.includes(cardCategory);
+                const languageMatch = selectedLanguages.length === 0 || 
+                    selectedLanguages.includes(cardLanguage);
+
+                // Show or hide card
+                const cardColumn = card.closest('.col');
+                if (categoryMatch && languageMatch) {
+                    cardColumn.style.display = 'block';
+                    visibleCardsCount++;
+                } else {
+                    cardColumn.style.display = 'none';
+                }
+            });
+
+            // Close modal
+            const filterModal = bootstrap.Modal.getInstance(document.getElementById('filterModal'));
+            filterModal.hide();
+        });
+
+        // Restore previous preferences on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+            const themeIcon = themeToggle.querySelector('i');
+            themeIcon.classList.remove('bi-moon');
+            themeIcon.classList.add('bi-sun');
+        }
+
+        const savedViewMode = localStorage.getItem('viewMode');
+        if (savedViewMode === 'list') {
+            newsSourcesContainer.classList.remove('row-cols-2', 'row-cols-md-4');
+            newsSourcesContainer.classList.add('row-cols-1');
+            const viewIcon = viewToggle.querySelector('i');
+            viewIcon.classList.remove('bi-grid-fill');
+            viewIcon.classList.add('bi-list-ul');
+        }
+    });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ensure addFirstNewspaperBtn opens the modal
+            const addFirstNewspaperBtn = document.getElementById('addFirstNewspaperBtn');
+            
+            if (addFirstNewspaperBtn) {
+                addFirstNewspaperBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const modal = new bootstrap.Modal(document.getElementById('customNewspaperModal'));
+                    modal.show();
+                });
+            }
+        });
+    </script>
+    <!-- Modal and Toast Initialization Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize tooltips
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
+            // Initialize all modals
+            const modalElements = document.querySelectorAll('.modal');
+            modalElements.forEach(modalEl => {
+                if (!bootstrap.Modal.getInstance(modalEl)) {
+                    try {
+                        new bootstrap.Modal(modalEl, {
+                            backdrop: 'static',
+                            keyboard: false
+                        });
+                    } catch (error) {
+                        console.error(`Error initializing modal ${modalEl.id}:`, error);
+                    }
+                }
+            });
+
+            // Initialize toasts
+            const toastElements = document.querySelectorAll('.toast');
+            toastElements.forEach(toastEl => {
+                bootstrap.Toast.getOrCreateInstance(toastEl);
+            });
+        });
+    </script>
+    <!-- Custom Newspaper Modal -->
+    <div class="modal fade" id="customNewspaperModal" tabindex="-1" aria-labelledby="customNewspaperModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="customNewspaperModalLabel">Add New Newspaper</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="customNewspaperForm">
+                        <div class="mb-3">
+                            <label for="customNewspaperTitle" class="form-label">Newspaper Title</label>
+                            <input type="text" class="form-control" id="customNewspaperTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customNewspaperLink" class="form-label">Website URL</label>
+                            <input type="url" class="form-control" id="customNewspaperLink" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customNewspaperCategory" class="form-label">Category</label>
+                            <select class="form-select" id="customNewspaperCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="general">General</option>
+                                <option value="regional">Regional</option>
+                                <option value="Economics&politics">Economics&Politics</option>
+                                <option value="sports">Sports</option>
+                                <option value="Celebrities">Celebrities</option>
+                                <option value="fashion">Fashion</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customNewspaperLanguage" class="form-label">Language</label>
+                            <select class="form-select" id="customNewspaperLanguage" required>
+                                <option value="">Select Language</option>
+                                <option value="english">English</option>
+                                <option value="hindi">Hindi</option>
+                                <option value="malayalam">Malayalam</option>
+                                <option value="telugu">Telugu</option>
+                                <option value="bengali">Bengali</option>
+                                <option value="kannada">Kannada</option>
+                                <option value="tamil">Tamil</option>
+                                <option value="marathi">Marathi</option>
+                                <option value="gujarati">Gujarati</option>
+                                <option value="punjabi">Punjabi</option>
+                                <option value="urdu">Urdu</option>
+                                <option value="odia">Odia</option>
+                                <option value="assamese">Assamese</option>                               
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Add Newspaper</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-success text-white">
+                <strong class="me-auto">Success</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Newspaper added successfully!
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Toast -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="errorToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-danger text-white">
+                <strong class="me-auto">Error</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="errorToastMessage">
+                An error occurred. Please try again.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
